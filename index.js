@@ -12,7 +12,7 @@ const pageNotFound = require("./middleware/errorPage");
 const productRoute = require("./routes/productRoute");
 const userRoute = require("./routes/userRoute");
 const adminRoute = require("./routes/adminRoute");
-const uploadRoute = require("./routes/uploadRoute");
+
 // Middeleware
 dotenv.config();
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
