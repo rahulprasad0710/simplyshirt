@@ -4,18 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col, Form } from "react-bootstrap";
 import { userProfileDetailsActionFn } from "../redux/action/userAccountAction";
-import {
-    paymentCheckoutAction,
-    resetCheckoutAction,
-} from "../redux/action/userAction/checkoutAction";
+import { paymentCheckoutAction } from "../redux/action/userAction/checkoutAction";
 import axios from "axios";
 import CheckoutProcess from "../components/user/CheckoutProcess";
 import OrderSummary from "../components/user/OrderSummary";
 const CheckoutPage = () => {
     const { userInfo } = useSelector((state) => state.userLogin);
     const [sdkReady, setsdkReady] = useState(false);
-    const { shippingSuccess, payment, paymentDetails, priceTotal } =
-        useSelector((state) => state.checkout);
+    const { shippingSuccess, payment, priceTotal } = useSelector(
+        (state) => state.checkout
+    );
 
     const [paymentMethod, setpaymentMethod] = useState("");
     const [onlinePayment, setonlinePayment] = useState(false);
@@ -32,7 +30,7 @@ const CheckoutPage = () => {
                 const { data: clientId } = await axios.get(
                     "/api/config/paypal"
                 );
-                console.log(clientId);
+
                 const script = document.createElement("script");
                 script.type = "text/javascript";
                 script.async = true;
@@ -41,7 +39,6 @@ const CheckoutPage = () => {
                     setsdkReady(true);
                 };
                 script.onerror = () => {
-                    console.log("Paypal SDK could not be loaded.");
                     setsdkReady(false);
                 };
                 document.body.appendChild(script);

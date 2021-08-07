@@ -31,7 +31,6 @@ const AdminPage = () => {
         }
     }, [dispatch, history, userInfo]);
 
-    console.log(path);
     return (
         <div>
             <div className="row">

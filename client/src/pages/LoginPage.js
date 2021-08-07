@@ -15,7 +15,6 @@ const LoginPage = () => {
         (state) => state.userLogin
     );
     const dispatch = useDispatch();
-    console.log(userInfo);
 
     useEffect(() => {
         if (userInfo !== null) {

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { Col, Alert, Card } from "react-bootstrap";
+import { Col, Alert } from "react-bootstrap";
 import {
-    addToCartActionFn,
     getUserCartItemActionFn,
     updateCartActionFn,
     removeFromCartActionFn,
